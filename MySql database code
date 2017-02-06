@@ -1,0 +1,156 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: localhost
+-- Tiempo de generación: 06-02-2017 a las 02:42:57
+-- Versión del servidor: 5.5.45
+-- Versión de PHP: 7.0.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `db_res`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cuentasusuario`
+--
+
+CREATE TABLE `cuentasusuario` (
+  `CuentasUsuarioId` int(11) NOT NULL,
+  `CU_Usuario` varchar(25) NOT NULL,
+  `CU_Password` varchar(30) NOT NULL,
+  `CU_Perfil` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `cuentasusuario`
+--
+
+INSERT INTO `cuentasusuario` (`CuentasUsuarioId`, `CU_Usuario`, `CU_Password`, `CU_Perfil`) VALUES
+(1152217, 'godie', 'diegoverde97', 1),
+(92838391, 'user', 'pass', 1),
+(1152217167, 'diego416', 'diegoverde', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `entradas`
+--
+
+CREATE TABLE `entradas` (
+  `EntradasId` int(11) NOT NULL,
+  `Ent_Ingreso` datetime NOT NULL,
+  `Ent_MotivoVisita` varchar(45) NOT NULL,
+  `Ent_IDVisitante` int(11) NOT NULL,
+  `Ent_NombreVisitante` varchar(25) NOT NULL,
+  `Ent_ApellidoVisitante` varchar(25) NOT NULL,
+  `UsuariosId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `entradas`
+--
+
+INSERT INTO `entradas` (`EntradasId`, `Ent_Ingreso`, `Ent_MotivoVisita`, `Ent_IDVisitante`, `Ent_NombreVisitante`, `Ent_ApellidoVisitante`, `UsuariosId`) VALUES
+(12, '2017-02-05 19:36:36', 'No tiene carnet aun.', 28938271, 'Olga', 'Zapata', 1152217167),
+(30, '2017-02-05 23:41:16', 'Biblioteca', 1827391, 'Ramon', 'Giraldo', 1152217),
+(31, '2017-02-06 01:15:03', 'Centro de idiomas', 62537289, 'Wilson', 'Correa', 1152217167);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `salidas`
+--
+
+CREATE TABLE `salidas` (
+  `SalidasId` int(11) NOT NULL,
+  `Sal_Salida` datetime NOT NULL,
+  `EntradasId` int(11) NOT NULL,
+  `UsuariosId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `salidas`
+--
+
+INSERT INTO `salidas` (`SalidasId`, `Sal_Salida`, `EntradasId`, `UsuariosId`) VALUES
+(1, '2017-02-06 01:06:15', 30, 1152217167);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `UsuariosId` int(11) NOT NULL,
+  `Usu_Nombre` varchar(25) NOT NULL,
+  `Usu_Apellido` varchar(25) NOT NULL,
+  `CuentasUsuarioId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`UsuariosId`, `Usu_Nombre`, `Usu_Apellido`, `CuentasUsuarioId`) VALUES
+(1152217, 'Juan', 'Zapata', 1152217),
+(92838391, 'Pablo', 'Usuga', 92838391),
+(1152217167, 'Diego', 'Correa', 1152217167);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `cuentasusuario`
+--
+ALTER TABLE `cuentasusuario`
+  ADD PRIMARY KEY (`CuentasUsuarioId`);
+
+--
+-- Indices de la tabla `entradas`
+--
+ALTER TABLE `entradas`
+  ADD PRIMARY KEY (`EntradasId`);
+
+--
+-- Indices de la tabla `salidas`
+--
+ALTER TABLE `salidas`
+  ADD PRIMARY KEY (`SalidasId`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`UsuariosId`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `entradas`
+--
+ALTER TABLE `entradas`
+  MODIFY `EntradasId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+--
+-- AUTO_INCREMENT de la tabla `salidas`
+--
+ALTER TABLE `salidas`
+  MODIFY `SalidasId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
