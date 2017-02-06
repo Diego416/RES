@@ -21,3 +21,9 @@ Instrucciones para windows.
   
   MySql 5.5.45
     Link de descarga https://dev.mysql.com/downloads/installer/ 
+   
+# Instalación base de datos
+  Ejecute Mysql, luego ejecute los comandos:
+    create database db_res;
+    use db_res;
+  Ahora copie y pegue el contenido del archivo "MySql database code".
