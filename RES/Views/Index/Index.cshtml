@@ -1,0 +1,12 @@
+@{
+    ViewData["Title"] = "Index";
+}
+<form asp-controller="Index" asp-action="Home" method="post" style="text-align: center">
+    <h2>Autentificación</h2>
+    <input type="text" name="txtUser" placeholder="User"><br><br>
+    <input type="password" name="txtPassword" placeholder="Password"><br><br>
+    <input type="submit" value="Login">
+</form>
+@if(ViewData["message"] == "true"){
+    <p style="color:red; text-align: center">Usuario y/o contraseña incorrectos</p>
+}

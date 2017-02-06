@@ -1,0 +1,31 @@
+@{
+    ViewData["Title"] = "Registros";
+}
+<style>
+    table, td, th{
+        border: solid 1px black;
+        text-align: center;
+    }
+
+</style>
+
+<div style="text-align: center">
+    <h2>Registros</h2>
+    <table width="100%">
+        <tr>
+            <th>Id entrada</th><th>Hora ingreso</th><th>Motivo</th><th>Id Visitante</th><th>Nombre Visitante</th><th>Apellido Visitante</th>
+        </tr>
+    @{
+    using (var context = new DBContext())
+    {    
+        var match = false;
+        foreach (var entrada in context.Entradas)
+        {
+            <tr>
+                <td>@entrada.entradasId</td><td>@entrada.Ent_Ingreso</td><td>@entrada.Ent_MotivoVisita</td><td>@entrada.Ent_IDVisitante</td><td>@entrada.Ent_NombreVisitante</td><td>@entrada.Ent_ApellidoVisitante</td>
+            </tr>
+        }
+    }
+    }
+    </table>
+</div>
