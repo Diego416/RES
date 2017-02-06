@@ -1,3 +1,5 @@
+Instrucciones para windows.
+
 # Descarga:
   Clonar el repositorio mediante el comando:
     git clone https://github.com/Diego416/RES.git
