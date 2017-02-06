@@ -1,6 +1,6 @@
 # Descarga:
   Clonar el repositorio mediante el comando:
-    gitclone https://github.com/Diego416/RES.git
+    git clone https://github.com/Diego416/RES.git
   
 # Compilación:
   En la terminal ubiquese en la carpeta raiz del proyecto y ejecute los siguientes comandos:
