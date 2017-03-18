@@ -23,8 +23,5 @@ namespace ConsoleApplication
 
         [MaxLength(25)]
         public string Ent_ApellidoVisitante { get; set; }
-
-        //[ForeignKey("usuarios")]
-        public int usuariosId { get; set; }
     }
 }

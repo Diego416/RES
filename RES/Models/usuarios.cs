@@ -9,15 +9,16 @@ namespace ConsoleApplication
 {
     public class usuarios
     {
-        public int usuariosId { get; set; }
+        [Key]
+        public int UsuarioId { get; set; }
 
-        [MaxLength(25)]
+        [MaxLength(45)]
         public string Usu_Nombre { get; set; }
 
-        [MaxLength(25)]
+        [MaxLength(45)]
         public string Usu_Apellido { get; set; }
 
-        //[ForeignKey("cuentasusuario")]
-        public int CuentasUsuarioId { get; set; }
+        [MaxLength(45)]
+        public string Usu_Email { get; set; }
     }
 }

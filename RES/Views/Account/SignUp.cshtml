@@ -1,0 +1,44 @@
+@model SampleMvcApp.ViewModels.SignUpViewModel
+@{
+    ViewData["Title"] = "Sign Up";
+}
+
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <section>
+            <form asp-controller="Account" asp-action="SignUp" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                <h4>Sign Up</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="ID"></label>
+                    <input asp-for="ID" class="form-control input-lg" />
+                    <span asp-validation-for="ID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" class="form-control input-lg" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div><div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="form-control input-lg" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EmailAddress"></label>
+                    <input asp-for="EmailAddress" class="form-control input-lg" />
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control input-lg" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Sign Up</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>

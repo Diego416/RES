@@ -1,12 +1,19 @@
 @{
     ViewData["Title"] = "Registrar";
 }
-<form asp-controller="Registrar" asp-action="Nuevo" method="post" style="text-align: center">
-    <h2>Nuevo registro</h2>
-    <input type="text" name="txtID" placeholder="Identificación"><br><br>
-    <input type="text" name="txtNombre" placeholder="Nombre"><br><br>
-    <input type="text" name="txtApellido" placeholder="Apellido"><br><br>
-    <input type="text" name="txtDateTime" value="@ViewData["HoraIngreso"]" disabled><br><br>
-    <textarea rows="2" cols="22" style="resize:none" name="txtMotivo" placeholder="Motivo visita"></textarea><br><br>
-    <input type="submit" value="Ingresar">
-</form>
+@if (User.Identity.IsAuthenticated)
+{
+    <form asp-controller="Registrar" asp-action="Nuevo" method="post" style="text-align: center">
+        <h2>Nuevo registro</h2>
+        <input type="text" name="txtID" placeholder="Identificación"><br><br>
+        <input type="text" name="txtNombre" placeholder="Nombre"><br><br>
+        <input type="text" name="txtApellido" placeholder="Apellido"><br><br>
+        <input type="text" name="txtDateTime" value="@ViewData["HoraIngreso"]" disabled><br><br>
+        <textarea rows="2" cols="22" style="resize:none" name="txtMotivo" placeholder="Motivo visita"></textarea><br><br>
+        <input type="submit" value="Ingresar">
+    </form>
+}
+else
+{
+    <h1>Por favor inicie sesion primero</h1>
+}
